@@ -1,4 +1,4 @@
-Procket it's a promise based HTTP client for the browser and node.js for **GET** and **POST** requests.
+Procket it's a promise based HTTP client for the browser and node.js for HTTP requests.
 
 ---
 
@@ -21,6 +21,10 @@ procket.get('url', {'Content-Type': 'application/json' }) //with headers
 
 procket.post('url', {name: "John"})
 procket.post('url', {name: "John"}, {'Content-Type': 'application/json' }) //with headers
+
+procket.post('delete', {name: "John"})
+procket.post('put', {name: "John"})
+procket.post('patch', {name: "John"})
 ```
 
 

@@ -46,6 +46,78 @@ class Procket {
       xhr.send(body);
     });
   }
+
+  async delete(url, body, header) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      header && xhr.setRequestHeader(header);
+      xhr.open("DELETE", url, true);
+
+      xhr.onload = function() {
+        if (this.status.toString()[0] == "2") {
+          resolve(JSON.parse(this.response));
+        } else {
+          const error = new Error(this.statusText);
+          error.code = this.status;
+          reject(error);
+        }
+      };
+
+      xhr.onerror = function() {
+        reject(new Error("Network Error"));
+      };
+
+      xhr.send(body);
+    });
+  }
+
+  async put(url, body, header) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      header && xhr.setRequestHeader(header);
+      xhr.open("PUT", url, true);
+
+      xhr.onload = function() {
+        if (this.status.toString()[0] == "2") {
+          resolve(JSON.parse(this.response));
+        } else {
+          const error = new Error(this.statusText);
+          error.code = this.status;
+          reject(error);
+        }
+      };
+
+      xhr.onerror = function() {
+        reject(new Error("Network Error"));
+      };
+
+      xhr.send(body);
+    });
+  }
+
+  async patch(url, body, header) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      header && xhr.setRequestHeader(header);
+      xhr.open("PATCH", url, true);
+
+      xhr.onload = function() {
+        if (this.status.toString()[0] == "2") {
+          resolve(JSON.parse(this.response));
+        } else {
+          const error = new Error(this.statusText);
+          error.code = this.status;
+          reject(error);
+        }
+      };
+
+      xhr.onerror = function() {
+        reject(new Error("Network Error"));
+      };
+
+      xhr.send(body);
+    });
+  }
 }
 
 const procket = new Procket();
